@@ -61,7 +61,9 @@ tqdm
 Download all files and keep in the same folder.
 
 1. Run clean_tweets.py file using the supervised_tweets csv - this python file runs the code that will replace all links in the tweets with the word "URL" and lowercase all words. This file will create a new csv (supervised_clean) with the cleaned tweets in the same directory that you're running the python file.
+
 The next files can be run in any order.
+
 2. supervised_methods.py - this file runs all of the sklearn machine learning methods (perceptron, knn, svm, and neural network) with the chosen preprocessing steps and outputs the mean cross validation accuracy, recall, precision, and F1-scores. To choose which preprocessing steps to use, uncomment your choice of lines 147-149 – these respectively correspond to removing stop words, lemmatizing, and stemming. All of the metrics will be printed to the console.
 3. distilbert_based_uncased.py - this file fine-tunes the distilbert model. It will print the results of the epochs and create a confusion matrix.
 4. training_neural_network.py - this file trains the neural network which uses the pretrained distilbert base uncased model again and its associated tokenizer. After the distilbert layer there will be four linear regression layers, a flattening layer, and a final linear regression layer before applying softmax to classify each point. This outputs the training accuracy, testing accuracy, and accuracy by class as well as the 
