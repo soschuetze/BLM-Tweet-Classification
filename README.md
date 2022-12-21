@@ -36,15 +36,25 @@ The project tests preprocessing methods (stop word removal, stemming, and lemmat
 
 ## Setup
 Install the following libraries:
+
 transformers
+
 tensorflow
+
 pandas
+
 numpy
+
 scikit-learn
+
 matplotlib
+
 nltk
+
 sentence-transformers
+
 pytorch
+
 tqdm
 
 ## Usage
