@@ -12,15 +12,25 @@ This project explores the research question of which natural language processing
 
 ## General Information
 The labels include:
+
 0 = Unrelated to #BlackLivesMatter
+
 1 = Within the system calls for action (e.g. voting, contacting an elected official, etc.)
+
 2 = Disruptive calls for action (e.g. protesting, boycotting, etc.) 
+
 3 = Raising awareness/spreading information (e.g. retweet, like, spread the word) 
+
 4 = Other (symbolic, buy swag, etc.) 
-5 = Moral encouragement/support 
+
+5 = Moral encouragement/support
+
 6 = Community gatherings for solidarity (vigil, community concert, etc.) 
+
 7 = Oppositional actions 
+
 8 = Pressuring non-political elites (e.g. media, advertiser)
+
 
 The project tests preprocessing methods (stop word removal, stemming, and lemmatizint), word embdedings methods (tf-idf and sBert), and various models (perceptrons, knn, svm, neural networks, and fine-tuning distilbert).
 
