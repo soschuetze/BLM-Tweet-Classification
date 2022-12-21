@@ -1,89 +1,56 @@
 # BLM-Tweet-Classification
 
-> Outline a brief description of your project.
+This project explores the research question of which natural language processing techniques and machine learning models best classify the forms of activism contained in #BlackLivesMatter tweets.
 
 ## Table of Contents
 * [General Info](#general-information)
-* [Technologies Used](#technologies-used)
-* [Features](#features)
-* [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Usage](#usage)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
-* [Contact](#contact)
-<!-- * [License](#license) -->
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+The labels include:
+0 = Unrelated to #BlackLivesMatter
+1 = Within the system calls for action (e.g. voting, contacting an elected official, etc.)
+2 = Disruptive calls for action (e.g. protesting, boycotting, etc.) 
+3 = Raising awareness/spreading information (e.g. retweet, like, spread the word) 
+4 = Other (symbolic, buy swag, etc.) 
+5 = Moral encouragement/support 
+6 = Community gatherings for solidarity (vigil, community concert, etc.) 
+7 = Oppositional actions 
+8 = Pressuring non-political elites (e.g. media, advertiser)
 
-
-## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
-
-
-## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
-
-
-## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
-
+The project tests preprocessing methods (stop word removal, stemming, and lemmatizint), word embdedings methods (tf-idf and sBert), and various models (perceptrons, knn, svm, neural networks, and fine-tuning distilbert).
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
-
+Install the following libraries:
+transformers
+tensorflow
+pandas
+numpy
+scikit-learn
+matplotlib
+nltk
+sentence-transformers
+pytorch
+tqdm
 
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
+Download all files and keep in the same folder.
 
-`write-your-code-here`
-
+1. Run clean_tweets.py file using the supervised_tweets csv - this python file runs the code that will replace all links in the tweets with the word "URL" and lowercase all words. This file will create a new csv (supervised_clean) with the cleaned tweets in the same directory that you're running the python file.
+The next files can be run in any order.
+2. supervised_methods.py - this file runs all of the sklearn machine learning methods (perceptron, knn, svm, and neural network) with the chosen preprocessing steps and outputs the mean cross validation accuracy, recall, precision, and F1-scores. To choose which preprocessing steps to use, uncomment your choice of lines 147-149 – these respectively correspond to removing stop words, lemmatizing, and stemming. All of the metrics will be printed to the console.
+3. distilbert_based_uncased.py - this file fine-tunes the distilbert model. It will print the results of the epochs and create a confusion matrix.
+4. training_neural_network.py - this file trains the neural network which uses the pretrained distilbert base uncased model again and its associated tokenizer. After the distilbert layer there will be four linear regression layers, a flattening layer, and a final linear regression layer before applying softmax to classify each point. 
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
-
+Project is: in progress
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
-
 To do:
-- Feature to be added 1
-- Feature to be added 2
+- Try multilabel classification methods
+- Combine labels
 
-
-## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
-
-
-## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
-
-
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
